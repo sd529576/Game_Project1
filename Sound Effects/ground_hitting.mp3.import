@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5ko5sl85nq1t"
+path="res://.godot/imported/ground_hitting.mp3-7568144aa516a2ceb872ca04f196bee0.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/ground_hitting.mp3"
+dest_files=["res://.godot/imported/ground_hitting.mp3-7568144aa516a2ceb872ca04f196bee0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

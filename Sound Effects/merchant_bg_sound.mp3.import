@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7un0rk4piltd"
+path="res://.godot/imported/merchant_bg_sound.mp3-5fe75ff49c4c93960143b8811f7e44ed.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/merchant_bg_sound.mp3"
+dest_files=["res://.godot/imported/merchant_bg_sound.mp3-5fe75ff49c4c93960143b8811f7e44ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

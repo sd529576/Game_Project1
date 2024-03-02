@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://m7kdm8wpy7lg"]
+
+[ext_resource type="Script" path="res://Level2_boss/Level2_boss.gd" id="1_0hcky"]
+[ext_resource type="Script" path="res://Level2_boss/CharacterBody2D.gd" id="2_4vp3w"]
+[ext_resource type="Texture2D" uid="uid://ciprgibshsgob" path="res://png/output1.png" id="3_xfm26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgvxx"]
+size = Vector2(743, 609)
+
+[sub_resource type="Animation" id="Animation_m3foe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Output1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_pioh8"]
+resource_name = "default"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Output1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r41y6"]
+_data = {
+"RESET": SubResource("Animation_m3foe"),
+"default": SubResource("Animation_pioh8")
+}
+
+[node name="Level2_boss" type="Node2D"]
+script = ExtResource("1_0hcky")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_4vp3w")
+
+[node name="Output1" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(99, -44)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_xfm26")
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(77, -9)
+shape = SubResource("RectangleShape2D_tgvxx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r41y6")
+}

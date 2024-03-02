@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://do644xso1fupy"
+path="res://.godot/imported/gong-91013.mp3-754516b1ce6158531f4bf014d1718504.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/gong-91013.mp3"
+dest_files=["res://.godot/imported/gong-91013.mp3-754516b1ce6158531f4bf014d1718504.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

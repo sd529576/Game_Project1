@@ -1,0 +1,18 @@
+Collision for layer1:
+Player: grounds,walls
+
+Collision for layer2:
+Monster: 
+
+Collision for layer3:
+Next level
+
+Collision for layer4:
+
+Unbreakable walls for both
+players and monsters
+
+collision for layer 9:
+
+To stop the collisions between the boss and the baby slimes when they
+spawn

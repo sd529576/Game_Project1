@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://c8kicvleep8vc"]
+
+[ext_resource type="Script" path="res://king_slime_boss.gd" id="1_e3oss"]
+[ext_resource type="Texture2D" uid="uid://ctjj28f5g6aou" path="res://png/Blue_Flame/ezgif-frame-006-removebg-preview.png" id="2_81jig"]
+[ext_resource type="Script" path="res://Area2D.gd" id="2_pny4f"]
+[ext_resource type="Texture2D" uid="uid://v8ddp4el8jc5" path="res://png/Blue_Flame/ezgif-frame-007-removebg-preview.png" id="3_to7qp"]
+[ext_resource type="Texture2D" uid="uid://b4w6n5i3eu5it" path="res://KingSlime-CamacebraGames/Attack/KingSlimeAttack1.png" id="3_yt8uk"]
+[ext_resource type="Texture2D" uid="uid://b5x4svx5ve2yc" path="res://KingSlime-CamacebraGames/Attack/KingSlimeAttack2.png" id="4_4u6ac"]
+[ext_resource type="Texture2D" uid="uid://68lo38uhnvwj" path="res://png/Blue_Flame/ezgif-frame-008-removebg-preview.png" id="4_p1ote"]
+[ext_resource type="Texture2D" uid="uid://b28ssswj67msb" path="res://KingSlime-CamacebraGames/Attack/KingSlimeAttack3.png" id="5_f51j6"]
+[ext_resource type="Texture2D" uid="uid://dc0sb0ea1xbry" path="res://png/Blue_Flame/ezgif-frame-009-removebg-preview.png" id="5_mv8ak"]
+[ext_resource type="Texture2D" uid="uid://cyt7s3n1r53yu" path="res://KingSlime-CamacebraGames/Attack/KingSlimeAttack4.png" id="6_n3wx1"]
+[ext_resource type="Texture2D" uid="uid://dfmyawx4y2unl" path="res://png/Blue_Flame/ezgif-frame-010-removebg-preview.png" id="6_n88ts"]
+[ext_resource type="Texture2D" uid="uid://djiedsftaecxi" path="res://png/Blue_Flame/ezgif-frame-011-removebg-preview.png" id="7_64hqh"]
+[ext_resource type="Texture2D" uid="uid://b8h6pwpesll0t" path="res://KingSlime-CamacebraGames/Attack/KingSlimeAttack5.png" id="7_ur51e"]
+[ext_resource type="Texture2D" uid="uid://cylxtoro2ksqy" path="res://png/Blue_Flame/ezgif-frame-012-removebg-preview.png" id="8_c1v8c"]
+[ext_resource type="Texture2D" uid="uid://c6pfdsofvycud" path="res://KingSlime-CamacebraGames/Idle/KingSlime_Idle1.png" id="8_flily"]
+[ext_resource type="Script" path="res://boss_slime/Marker2D.gd" id="9_udwcc"]
+[ext_resource type="PackedScene" uid="uid://dpwbdn4gntgaa" path="res://Damage_notif/damage_notf.tscn" id="10_0annx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qx7q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_81jig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_to7qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p1ote")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mv8ak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n88ts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_64hqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c1v8c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2bnr"]
+radius = 72.0069
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7e6vx"]
+radius = 114.039
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_547xn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_flily")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yt8uk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4u6ac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f51j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n3wx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ur51e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_flily")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_flily")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="King_slime_boss" type="CharacterBody2D" groups=["King_slime"]]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_e3oss")
+
+[node name="flamed" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(4, -70.1953)
+scale = Vector2(0.201201, 0.209042)
+sprite_frames = SubResource("SpriteFrames_7qx7q")
+frame_progress = 0.429855
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_o2bnr")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_pny4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 15)
+shape = SubResource("CircleShape2D_7e6vx")
+
+[node name="Jump_Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.18, 3.133)
+sprite_frames = SubResource("SpriteFrames_547xn")
+frame = 6
+frame_progress = 1.0
+
+[node name="KingSlimeIdle1" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(3.18, 3.133)
+texture = ExtResource("8_flily")
+
+[node name="spawner" type="Node2D" parent="."]
+position = Vector2(448, -126)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(139, -72)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-2, -121)
+script = ExtResource("9_udwcc")
+damage_node = ExtResource("10_0annx")
+
+[node name="Tick_Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="timeout" from="Jump_Timer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="Tick_Timer" to="Area2D" method="_on_tick_timer_timeout"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=21 format=3 uid="uid://de60xf0pkrcxs"]
+
+[ext_resource type="Script" path="res://monster2/monster2.gd" id="1_f7cwq"]
+[ext_resource type="Texture2D" uid="uid://ctjj28f5g6aou" path="res://png/Blue_Flame/ezgif-frame-006-removebg-preview.png" id="2_nucja"]
+[ext_resource type="Texture2D" uid="uid://cw4v0o1hcsap" path="res://png/idle.png" id="2_vgxe2"]
+[ext_resource type="Texture2D" uid="uid://v8ddp4el8jc5" path="res://png/Blue_Flame/ezgif-frame-007-removebg-preview.png" id="3_g0gq3"]
+[ext_resource type="Texture2D" uid="uid://dshwha00xyxvq" path="res://png/hop.png" id="3_lj15i"]
+[ext_resource type="Script" path="res://monster2/Area2D.gd" id="4_p101u"]
+[ext_resource type="Texture2D" uid="uid://68lo38uhnvwj" path="res://png/Blue_Flame/ezgif-frame-008-removebg-preview.png" id="4_rtv2w"]
+[ext_resource type="Script" path="res://monster2/Popup_loc.gd" id="5_ac2er"]
+[ext_resource type="Texture2D" uid="uid://dc0sb0ea1xbry" path="res://png/Blue_Flame/ezgif-frame-009-removebg-preview.png" id="5_q2n4m"]
+[ext_resource type="Texture2D" uid="uid://dfmyawx4y2unl" path="res://png/Blue_Flame/ezgif-frame-010-removebg-preview.png" id="6_a16lv"]
+[ext_resource type="PackedScene" uid="uid://dpwbdn4gntgaa" path="res://Damage_notif/damage_notf.tscn" id="6_bjxqs"]
+[ext_resource type="Texture2D" uid="uid://djiedsftaecxi" path="res://png/Blue_Flame/ezgif-frame-011-removebg-preview.png" id="7_5p5cs"]
+[ext_resource type="Texture2D" uid="uid://cylxtoro2ksqy" path="res://png/Blue_Flame/ezgif-frame-012-removebg-preview.png" id="8_w8xga"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ilpk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nucja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g0gq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rtv2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q2n4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a16lv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5p5cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w8xga")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxdra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce1dd"]
+atlas = ExtResource("3_lj15i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36gxm"]
+atlas = ExtResource("3_lj15i")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00m0m"]
+atlas = ExtResource("3_lj15i")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qubm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36gxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00m0m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52tt4"]
+radius = 13.1529
+
+[node name="Monster2" type="CharacterBody2D" groups=["Monster2"]]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_f7cwq")
+
+[node name="flamed" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -19)
+scale = Vector2(0.0307808, 0.051)
+sprite_frames = SubResource("SpriteFrames_ilpk7")
+frame_progress = 0.160968
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vgxe2")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_gxdra")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_0qubm")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_p101u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_52tt4")
+
+[node name="Monster2_jump_timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Popup_loc" type="Marker2D" parent="."]
+position = Vector2(15, -17)
+script = ExtResource("5_ac2er")
+damage_node = ExtResource("6_bjxqs")
+
+[node name="Tick_Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="timeout" from="Monster2_jump_timer" to="." method="_on_monster_2_jump_timer_timeout"]
+[connection signal="timeout" from="Tick_Timer" to="Area2D" method="_on_tick_timer_timeout"]

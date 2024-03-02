@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://gyy88ea3sdkb"]
+
+[ext_resource type="Texture2D" uid="uid://becjvac1m30h8" path="res://png/coins (1).png" id="1_jrlvc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture = ExtResource("1_jrlvc")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba5njx2q7005v"]
+
+[ext_resource type="Script" path="res://Lobby_Menu/lobby_menu.gd" id="1_qjshk"]
+[ext_resource type="PackedScene" uid="uid://dsdigaud67pov" path="res://Option_menu/Option_Menu.tscn" id="4_6rrfj"]
+
+[node name="Lobby_Menu" type="Node2D"]
+script = ExtResource("1_qjshk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 501.0
+offset_top = 40.0
+offset_right = 655.0
+offset_bottom = 124.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+text = "You can't enter merchant before the game starts!"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Label_container_with_btns" type="Node2D" parent="."]
+
+[node name="Play_button" type="Button" parent="Label_container_with_btns"]
+offset_left = 463.0
+offset_top = 248.0
+offset_right = 694.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="Merchant_button" type="Button" parent="Label_container_with_btns"]
+offset_left = 464.0
+offset_top = 311.0
+offset_right = 695.0
+offset_bottom = 366.0
+theme_override_font_sizes/font_size = 30
+text = "Merchant"
+
+[node name="Exit_button" type="Button" parent="Label_container_with_btns"]
+offset_left = 465.0
+offset_top = 430.0
+offset_right = 696.0
+offset_bottom = 485.0
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="Option_button" type="Button" parent="Label_container_with_btns"]
+offset_left = 467.0
+offset_top = 372.0
+offset_right = 696.0
+offset_bottom = 424.0
+theme_override_font_sizes/font_size = 30
+text = "Option"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label_container_with_btns"]
+offset_left = 477.0
+offset_top = 130.0
+offset_right = 696.0
+offset_bottom = 232.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "Owl Guy"
+
+[node name="Option_Menu" parent="." instance=ExtResource("4_6rrfj")]
+visible = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Label_container_with_btns/Play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Label_container_with_btns/Merchant_button" to="." method="_on_merchant_button_pressed"]
+[connection signal="pressed" from="Label_container_with_btns/Exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Label_container_with_btns/Option_button" to="." method="_on_option_button_pressed"]

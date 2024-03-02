@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lc0ynh4r3p0n"
+path="res://.godot/imported/Knife_slicing-[AudioTrimmer.com].mp3-da136ab847ed23a52c75cf74fb69c9ec.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Knife_slicing-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Knife_slicing-[AudioTrimmer.com].mp3-da136ab847ed23a52c75cf74fb69c9ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

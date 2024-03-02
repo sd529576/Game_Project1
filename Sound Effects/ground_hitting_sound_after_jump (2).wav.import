@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b0i6ae8iht6j6"
+path="res://.godot/imported/ground_hitting_sound_after_jump (2).wav-9506beaf1e8901f5728eca5643356717.sample"
+
+[deps]
+
+source_file="res://Sound Effects/ground_hitting_sound_after_jump (2).wav"
+dest_files=["res://.godot/imported/ground_hitting_sound_after_jump (2).wav-9506beaf1e8901f5728eca5643356717.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

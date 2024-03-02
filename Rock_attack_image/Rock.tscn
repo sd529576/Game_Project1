@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjtfutcms5gcy"]
+
+[ext_resource type="Script" path="res://Rock_attack_image/Rock.gd" id="1_ipun1"]
+[ext_resource type="Texture2D" uid="uid://bqdw5wit81has" path="res://1 Tiles/2 Owlet_Monster/Rock2.png" id="1_r3yib"]
+[ext_resource type="Texture2D" uid="uid://cg46x8scn88if" path="res://bg_tiles/Night Tileset 16x16/TILE.png" id="2_4a8ta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53k2f"]
+size = Vector2(18, 16)
+
+[node name="Rock" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_ipun1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_53k2f")
+
+[node name="Tile" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 9.53674e-07)
+scale = Vector2(0.151869, 0.147959)
+texture = ExtResource("2_4a8ta")
+
+[node name="Rock2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(23, -3)
+texture = ExtResource("1_r3yib")

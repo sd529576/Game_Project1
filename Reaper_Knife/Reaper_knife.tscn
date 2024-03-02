@@ -1,0 +1,238 @@
+[gd_scene load_steps=42 format=3 uid="uid://bm0die3ubkn37"]
+
+[ext_resource type="Texture2D" uid="uid://c7eyqhirdblf" path="res://png/Reaper_knife/real reaper knife.png" id="1_ffq53"]
+[ext_resource type="Texture2D" uid="uid://dhd0eolrrwdck" path="res://png/Reaper_knife/image (4).png" id="2_0etpq"]
+[ext_resource type="Texture2D" uid="uid://dnrwxstccv8a6" path="res://png/Reaper_knife/image (5).png" id="3_bl1ew"]
+[ext_resource type="Texture2D" uid="uid://bonr0oxmbry67" path="res://png/Reaper_knife/image (6).png" id="4_5h36n"]
+[ext_resource type="Texture2D" uid="uid://bnkd7usqan50e" path="res://png/Reaper_knife/image (7).png" id="5_g64ew"]
+[ext_resource type="Texture2D" uid="uid://cpqh6iyqa3ckt" path="res://png/Reaper_knife/image (8).png" id="6_innuy"]
+[ext_resource type="Texture2D" uid="uid://bwk77x5ux1x2n" path="res://png/Reaper_knife/image (9).png" id="7_6qa8c"]
+[ext_resource type="Texture2D" uid="uid://ifug3djkvvln" path="res://png/Reaper_knife/image (10).png" id="8_wqrxk"]
+[ext_resource type="Texture2D" uid="uid://ca5skvsifuiwc" path="res://png/Reaper_knife/image (11).png" id="9_8eyax"]
+[ext_resource type="Texture2D" uid="uid://v1gpkk3oprly" path="res://png/Reaper_knife/image (12).png" id="10_3p2f3"]
+[ext_resource type="Texture2D" uid="uid://d2sanoose7ph4" path="res://png/Reaper_knife/image (13).png" id="11_vj4xb"]
+[ext_resource type="Texture2D" uid="uid://dwwnra4ik2awk" path="res://png/Reaper_knife/image (14).png" id="12_bmt0h"]
+[ext_resource type="Texture2D" uid="uid://br0pameyrf7vx" path="res://png/Reaper_knife/image (15).png" id="13_hjpdw"]
+[ext_resource type="Texture2D" uid="uid://c5kl2tid4s022" path="res://png/Reaper_knife/image (16).png" id="14_iyri7"]
+[ext_resource type="Texture2D" uid="uid://c73qa6vyh7xsm" path="res://png/Reaper_knife/image (17).png" id="15_gx6io"]
+[ext_resource type="Texture2D" uid="uid://6kca1cimivjs" path="res://png/Reaper_knife/image (18).png" id="16_jo26q"]
+[ext_resource type="Texture2D" uid="uid://cp61f6uff4ua5" path="res://png/Reaper_knife/image (19).png" id="17_8me67"]
+[ext_resource type="Texture2D" uid="uid://dtc8d48pu4t1w" path="res://png/Reaper_knife/image (20).png" id="18_rqvut"]
+[ext_resource type="Script" path="res://Reaper_Knife/Knife.gd" id="18_wf37b"]
+[ext_resource type="Texture2D" uid="uid://gofxx6fowwik" path="res://png/Inverted Reaper Knife/image (4).png" id="19_pel1a"]
+[ext_resource type="Texture2D" uid="uid://u2yp5d1s6ud7" path="res://png/Inverted Reaper Knife/image (5).png" id="20_5a25a"]
+[ext_resource type="Texture2D" uid="uid://c0iex36to5rcd" path="res://png/Inverted Reaper Knife/image (6).png" id="21_ukwky"]
+[ext_resource type="Texture2D" uid="uid://cu1sb0d2ph6ed" path="res://png/Inverted Reaper Knife/image (7).png" id="22_o6bhn"]
+[ext_resource type="Texture2D" uid="uid://btthbnj7q80du" path="res://png/Inverted Reaper Knife/image (8).png" id="23_xpjvs"]
+[ext_resource type="Texture2D" uid="uid://c1h6quvxk8ie7" path="res://png/Inverted Reaper Knife/image (9).png" id="24_ucdk3"]
+[ext_resource type="Texture2D" uid="uid://c5fhk52pcoxi4" path="res://png/Inverted Reaper Knife/image (10).png" id="25_yqhp5"]
+[ext_resource type="Texture2D" uid="uid://bll3a0dc3vvma" path="res://png/Inverted Reaper Knife/image (11).png" id="26_k4k8c"]
+[ext_resource type="Texture2D" uid="uid://0kydft2ljdod" path="res://png/Inverted Reaper Knife/image (12).png" id="27_sfg81"]
+[ext_resource type="Texture2D" uid="uid://36syyltmp2uj" path="res://png/Inverted Reaper Knife/image (13).png" id="28_w0t65"]
+[ext_resource type="Texture2D" uid="uid://dyc0ux822jnow" path="res://png/Inverted Reaper Knife/image (14).png" id="29_b4tyn"]
+[ext_resource type="Texture2D" uid="uid://bwjliint46wf5" path="res://png/Inverted Reaper Knife/image (15).png" id="30_3ndfu"]
+[ext_resource type="Texture2D" uid="uid://c8sb4inmmomty" path="res://png/Inverted Reaper Knife/image (16).png" id="31_kumxu"]
+[ext_resource type="Texture2D" uid="uid://cx47frnlhocm2" path="res://png/Inverted Reaper Knife/image (17).png" id="32_443dy"]
+[ext_resource type="Texture2D" uid="uid://c3ye0ns7fh2no" path="res://png/Inverted Reaper Knife/image (18).png" id="33_577wn"]
+[ext_resource type="Texture2D" uid="uid://c05b3qeior8gw" path="res://png/Inverted Reaper Knife/image (19).png" id="34_pa8g6"]
+[ext_resource type="Texture2D" uid="uid://xufhp82ubt8a" path="res://png/Inverted Reaper Knife/image (20).png" id="35_hm208"]
+[ext_resource type="Texture2D" uid="uid://c3rgwl00m5cus" path="res://png/Inverted Reaper Knife/image (22).png" id="36_tjcib"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v037q"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": ExtResource("2_0etpq")
+}, {
+"duration": 7.0,
+"texture": ExtResource("3_bl1ew")
+}, {
+"duration": 7.0,
+"texture": ExtResource("4_5h36n")
+}, {
+"duration": 7.0,
+"texture": ExtResource("3_bl1ew")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_0etpq")
+}, {
+"duration": 0.3,
+"texture": ExtResource("3_bl1ew")
+}, {
+"duration": 0.3,
+"texture": ExtResource("4_5h36n")
+}, {
+"duration": 0.3,
+"texture": ExtResource("5_g64ew")
+}, {
+"duration": 0.3,
+"texture": ExtResource("6_innuy")
+}, {
+"duration": 0.3,
+"texture": ExtResource("7_6qa8c")
+}, {
+"duration": 0.3,
+"texture": ExtResource("8_wqrxk")
+}, {
+"duration": 0.3,
+"texture": ExtResource("9_8eyax")
+}, {
+"duration": 0.3,
+"texture": ExtResource("10_3p2f3")
+}, {
+"duration": 0.3,
+"texture": ExtResource("11_vj4xb")
+}, {
+"duration": 0.3,
+"texture": ExtResource("12_bmt0h")
+}, {
+"duration": 0.3,
+"texture": ExtResource("13_hjpdw")
+}, {
+"duration": 0.3,
+"texture": ExtResource("14_iyri7")
+}, {
+"duration": 0.3,
+"texture": ExtResource("15_gx6io")
+}, {
+"duration": 0.3,
+"texture": ExtResource("16_jo26q")
+}, {
+"duration": 0.3,
+"texture": ExtResource("17_8me67")
+}, {
+"duration": 0.3,
+"texture": ExtResource("18_rqvut")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_18ik7"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ptspc"]
+_data = {
+"new_animation": SubResource("Animation_18ik7")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6u6n"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("19_pel1a")
+}, {
+"duration": 5.0,
+"texture": ExtResource("20_5a25a")
+}, {
+"duration": 5.0,
+"texture": ExtResource("21_ukwky")
+}, {
+"duration": 5.0,
+"texture": ExtResource("20_5a25a")
+}, {
+"duration": 10.0,
+"texture": ExtResource("19_pel1a")
+}, {
+"duration": 0.5,
+"texture": ExtResource("22_o6bhn")
+}, {
+"duration": 0.5,
+"texture": ExtResource("23_xpjvs")
+}, {
+"duration": 0.5,
+"texture": ExtResource("24_ucdk3")
+}, {
+"duration": 0.5,
+"texture": ExtResource("25_yqhp5")
+}, {
+"duration": 0.5,
+"texture": ExtResource("26_k4k8c")
+}, {
+"duration": 0.5,
+"texture": ExtResource("27_sfg81")
+}, {
+"duration": 0.5,
+"texture": ExtResource("28_w0t65")
+}, {
+"duration": 0.5,
+"texture": ExtResource("29_b4tyn")
+}, {
+"duration": 0.5,
+"texture": ExtResource("30_3ndfu")
+}, {
+"duration": 0.5,
+"texture": ExtResource("31_kumxu")
+}, {
+"duration": 0.5,
+"texture": ExtResource("32_443dy")
+}, {
+"duration": 0.5,
+"texture": ExtResource("33_577wn")
+}, {
+"duration": 0.5,
+"texture": ExtResource("34_pa8g6")
+}, {
+"duration": 0.5,
+"texture": ExtResource("35_hm208")
+}, {
+"duration": 0.5,
+"texture": ExtResource("36_tjcib")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Reaper_knife" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 0
+collision_mask = 0
+
+[node name="Knife" type="AnimatedSprite2D" parent="."]
+position = Vector2(-138, -45)
+scale = Vector2(1.60283, 1.25304)
+sprite_frames = SubResource("SpriteFrames_v037q")
+frame = 20
+frame_progress = 1.0
+script = ExtResource("18_wf37b")
+
+[node name="Node2D" type="Node2D" parent="Knife"]
+position = Vector2(-181.708, -238.56)
+
+[node name="RealReaperKnife" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-20.2495, -30.9997)
+scale = Vector2(0.743, 0.809)
+texture = ExtResource("1_ffq53")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ptspc")
+}
+
+[node name="Inverted_knife" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(289, -59)
+scale = Vector2(1.603, 1.253)
+sprite_frames = SubResource("SpriteFrames_q6u6n")
+frame = 19
+frame_progress = 1.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-309, -343)
+scale = Vector2(0.735566, 0.999406)
+amount = 80
+spread = 180.0
+gravity = Vector2(500, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+color = Color(0.223529, 0, 0.101961, 1)

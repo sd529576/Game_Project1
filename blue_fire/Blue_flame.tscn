@@ -1,0 +1,251 @@
+[gd_scene load_steps=25 format=3 uid="uid://cp0wfq6rxrxag"]
+
+[ext_resource type="Texture2D" uid="uid://ctjj28f5g6aou" path="res://png/Blue_Flame/ezgif-frame-006-removebg-preview.png" id="1_57obx"]
+[ext_resource type="Script" path="res://blue_fire/Blue_flame.gd" id="1_sminy"]
+[ext_resource type="Texture2D" uid="uid://v8ddp4el8jc5" path="res://png/Blue_Flame/ezgif-frame-007-removebg-preview.png" id="2_bmvlr"]
+[ext_resource type="Texture2D" uid="uid://68lo38uhnvwj" path="res://png/Blue_Flame/ezgif-frame-008-removebg-preview.png" id="3_m7w25"]
+[ext_resource type="Texture2D" uid="uid://dc0sb0ea1xbry" path="res://png/Blue_Flame/ezgif-frame-009-removebg-preview.png" id="4_qustj"]
+[ext_resource type="Texture2D" uid="uid://dfmyawx4y2unl" path="res://png/Blue_Flame/ezgif-frame-010-removebg-preview.png" id="5_fmx8e"]
+[ext_resource type="Texture2D" uid="uid://djiedsftaecxi" path="res://png/Blue_Flame/ezgif-frame-011-removebg-preview.png" id="6_jpkpq"]
+[ext_resource type="Texture2D" uid="uid://cylxtoro2ksqy" path="res://png/Blue_Flame/ezgif-frame-012-removebg-preview.png" id="7_vl27q"]
+[ext_resource type="Texture2D" uid="uid://dejtdf04o1g5n" path="res://png/Blue_Flame/ezgif-frame-013-removebg-preview.png" id="8_guaag"]
+[ext_resource type="Texture2D" uid="uid://dy8al511rxww0" path="res://png/Blue_Flame/ezgif-frame-014-removebg-preview.png" id="9_dsj08"]
+[ext_resource type="Texture2D" uid="uid://beysybqyqvnmi" path="res://png/Blue_Flame/ezgif-frame-015-removebg-preview.png" id="10_3bok2"]
+[ext_resource type="Texture2D" uid="uid://b82ym306ntett" path="res://png/Blue_Flame/ezgif-frame-016-removebg-preview.png" id="11_m4mx0"]
+[ext_resource type="Texture2D" uid="uid://le3qfwndhvx1" path="res://png/Blue_Flame/ezgif-frame-017-removebg-preview.png" id="12_o8scp"]
+[ext_resource type="Texture2D" uid="uid://cgsrrybedpad5" path="res://png/Blue_Flame/ezgif-frame-025-removebg-preview.png" id="13_vxc6a"]
+[ext_resource type="Texture2D" uid="uid://x7jv3b3v3yfr" path="res://png/Blue_Flame/ezgif-frame-026-removebg-preview.png" id="14_iweom"]
+[ext_resource type="Texture2D" uid="uid://c1rpxc8u6urum" path="res://png/Blue_Flame/ezgif-frame-027-removebg-preview.png" id="15_7nxv5"]
+[ext_resource type="Texture2D" uid="uid://76bmqn7y6asn" path="res://png/Blue_Flame/ezgif-frame-028-removebg-preview.png" id="16_snarg"]
+[ext_resource type="Texture2D" uid="uid://bsg15hwyu2gfb" path="res://png/Blue_Flame/ezgif-frame-029-removebg-preview.png" id="17_aoute"]
+[ext_resource type="Texture2D" uid="uid://bnaf3ndhv0wk3" path="res://png/Blue_Flame/ezgif-frame-030-removebg-preview.png" id="18_5414t"]
+[ext_resource type="Texture2D" uid="uid://dks0mc3oxcaue" path="res://png/Blue_Flame/ezgif-frame-031-removebg-preview.png" id="19_76ne6"]
+[ext_resource type="Texture2D" uid="uid://eb16j4x6phk6" path="res://png/Blue_Flame/ezgif-frame-032-removebg-preview.png" id="20_ejyca"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwrjd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_57obx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bmvlr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m7w25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qustj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fmx8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jpkpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vl27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_guaag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dsj08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3bok2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m4mx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o8scp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vxc6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_iweom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7nxv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_snarg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_aoute")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5414t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_76ne6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ejyca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_ejyca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_76ne6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5414t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_aoute")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_snarg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7nxv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_iweom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vxc6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o8scp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m4mx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3bok2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dsj08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_guaag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vl27q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jpkpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fmx8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qustj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m7w25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bmvlr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_57obx")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8htan"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi4lu"]
+size = Vector2(1564, 77)
+
+[node name="Blue_flame" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_sminy")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(874, -61)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+animation = &"new_animation"
+frame_progress = 0.286237
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(758, -60)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(626, -60)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-355, -59)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-473, -57)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-134, -59)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(265, -60)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(1.54074e-33, -62)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(136, -60)
+scale = Vector2(0.248, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(389, -61)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(506, -61)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-246, -59)
+scale = Vector2(0.247748, 0.358)
+sprite_frames = SubResource("SpriteFrames_hwrjd")
+frame_progress = 0.788463
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_8htan")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(199, -16.5)
+shape = SubResource("RectangleShape2D_oi4lu")
