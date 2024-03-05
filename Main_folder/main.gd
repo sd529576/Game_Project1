@@ -23,6 +23,7 @@ var phase = 3
 var boss1 = boss_slime.instantiate()
 var available_blocks = 0
 var timer_pressed = false
+var modulation_value = 1
 signal spear_firing
 func _ready():
 	$Main_sound_container/In_game_music.play()
@@ -284,17 +285,36 @@ func _on_death_sentence_timeout():
 		$Reaper/death.start()
 		$Reaper/Slicing_timer.start()
 func _on_death_timeout():
-	print($Darkness.modulate)
+	print($Darkness.color)
 	if $Candidate1.modulate.a >0:
 		$Candidate1.modulate.a = $Candidate1.modulate.a - 0.05
 	elif $Candidate1.modulate.a < 0:
 		$Candidate1.hide()
 		$Candidate1.modulate.a = 1
-		
-	$Darkness_with_rect_working.modulate.a = $Darkness_with_rect_working.modulate.a + 0.05
+	
+	$Darkness.color.r -= .05
+	$Darkness.color.g -= .05
+	$Darkness.color.b -= .05
+	
+	if $Darkness.color.r <= 0:
+		$Player/PointLight2D.show()
+		$Darkness.color.r = 0
+		$Darkness.color.g = 0
+		$Darkness.color.b = 0
+	#$Darkness.set_color()
+	"""
+	$Darkness.modulate.r -= .05
+	$Darkness.modulate.g -= .05
+	$Darkness.modulate.b -= .05
+	
+	if $Darkness.modulate.r <= 0:
+		$Player/PointLight2D.show()
+	
+	"""
+	"""
+	$Darkness_with_rect_working.modulate.a = $Darkness_with_rect_working.modulate.a + 5
 	if $Darkness_with_rect_working.modulate.a >= 255:
 		$Player/PointLight2D.show()
-		"""
 		await get_tree().create_timer(5).timeout
 		print("not running")
 		$Darkness.visible = false
