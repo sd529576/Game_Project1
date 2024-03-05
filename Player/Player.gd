@@ -28,6 +28,7 @@ var attack_count = 3
 var sound_path = AudioStreamPlayer2D
 @onready var Monster2 = preload("res://monster2/monster2.tscn").instantiate()
 @export var on_ladder = false
+signal Projectile_direction
 
 func _process(_delta):
 	var input_direction = Vector2(
@@ -36,7 +37,6 @@ func _process(_delta):
 	)
 	moving(input_direction.x)
 	jump(input_direction.x)
-	print(attack_count)
 func _physics_process(delta):
 	if is_on_floor():
 		jump_count = 0
@@ -100,12 +100,12 @@ func going_down():
 		get_parent().going_down = true
 func jump(x_value):
 	sound_path = $Player_sound_container/Jump_sound
-	player_sound_play(sound_path)
 	if x_value == 1:
 		velocity.x = move_speed
 		if Input.is_action_just_pressed("jump") and hold_input == false and jump_count < max_jump:
 			velocity.y = jump_velocity
 			$AnimationPlayer.play("Jump")
+			player_sound_play(sound_path)
 			jump_count += 1
 	elif x_value == -1:
 		velocity.x = -move_speed
@@ -113,11 +113,13 @@ func jump(x_value):
 			velocity.y = jump_velocity
 			$Player_body.scale.x = -1.75
 			$AnimationPlayer.play("Jump")
+			player_sound_play(sound_path)
 			jump_count += 1
 	elif x_value == 0:
 		if Input.is_action_just_pressed("jump") and hold_input == false and jump_count < max_jump:
 			velocity.y = jump_velocity
 			$AnimationPlayer.play("Jump")
+			player_sound_play(sound_path)
 			jump_count += 1
 func attack_animation():
 	if input_handler == false:
@@ -172,12 +174,14 @@ func shoot():
 		rock1.position = $Muzzle.global_position
 		"""
 		if state_x == -1:
+			b.facing_direction = -1
 			b.scale.x = -1
 			#b.facing_direction = -1
 			#rock1.facing_direction = -1
 			$Muzzle.position.x = 3
 			$Muzzle.position.y = 0
 		elif state_x == 1:
+			b.facing_direction = 1
 			b.scale.x = 1
 			#b.facing_direction = 1
 			#rock1.facing_direction =1
@@ -187,7 +191,6 @@ func shoot():
 		attack_count -=1
 		if attack_count <2:
 			third_attack = true
-		
 func shoot_enhanced_bottom():
 	var b = bulletpath.instantiate()
 	get_parent().get_node("bulletContainer").add_child(b)

@@ -101,7 +101,6 @@ script = ExtResource("1_m1ysi")
 position = Vector2(1.00001, -0.999996)
 sprite_frames = SubResource("SpriteFrames_7x7pk")
 animation = &"take"
-frame_progress = 0.880736
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gvube")

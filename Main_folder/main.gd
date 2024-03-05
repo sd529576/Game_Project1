@@ -62,6 +62,9 @@ func Level_changes():
 		"""
 func _physics_process(_delta):
 	game_over()
+	for i in $Player/Player_sound_container.get_children():
+		if i.playing == true:
+			print(i.name)
 func _process(_delta):
 	if $Reaper/Reaper_knife/Knife.frame == 20:
 		$Reaper/Reaper_knife.hide()
@@ -83,7 +86,7 @@ func _process(_delta):
 	#$Round_time_left.text = (str(snappedf($Round_timer.time_left,0.01)))
 	if door_entered == true and Input.is_action_just_pressed("Up"):
 		$Main_Timer_container/Teleport_timer.start()
-		$Main_sound_container/Teleport_sound.play()
+		#$Main_sound_container/Teleport_sound.play()
 	if Input.is_action_just_pressed("Kill"):
 		for i in $Monster_container.get_children():
 			i.health -= 100
@@ -205,7 +208,7 @@ func _on_merchant_btn_pressed():
 	$Main_sound_container/In_game_music.stream_paused = true
 	$Merchant_screen.show()
 	$Merchant_Setting_screen.make_current()
-	$Main_sound_container/Merchant_rain_music.play()
+	#$Main_sound_container/Merchant_rain_music.play()
 	# the reason that we need these nodes to be individual hidden is because merchant screen is part of the player node
 	
 func _on_exit_btn_pressed():
@@ -281,13 +284,22 @@ func _on_death_sentence_timeout():
 		$Reaper/death.start()
 		$Reaper/Slicing_timer.start()
 func _on_death_timeout():
+	print($Darkness.modulate)
 	if $Candidate1.modulate.a >0:
 		$Candidate1.modulate.a = $Candidate1.modulate.a - 0.05
 	elif $Candidate1.modulate.a < 0:
 		$Candidate1.hide()
 		$Candidate1.modulate.a = 1
-		$Main_Timer_container/Darkness_container.start()
-
+		
+	$Darkness_with_rect_working.modulate.a = $Darkness_with_rect_working.modulate.a + 0.05
+	if $Darkness_with_rect_working.modulate.a >= 255:
+		$Player/PointLight2D.show()
+		"""
+		await get_tree().create_timer(5).timeout
+		print("not running")
+		$Darkness.visible = false
+		$Player/PointLight2D.visible = false
+		"""
 func _on_slicing_timer_timeout():
 	$Main_sound_container/Knife_slicing.play()
 
@@ -297,13 +309,17 @@ func _on_spear_rain_timeout():
 		Spear_rain()
 		spear_firing.emit()
 
-
+"""
 func _on_darkness_container_timeout():
+	print("not running")
 	$Darkness.visible = true
 	$Player/PointLight2D.visible = true
 	$Main_Timer_container/darkness_reset.start()
+	"""
 
 
+"""
 func _on_darkness_reset_timeout():
 	$Darkness.visible = false
 	$Player/PointLight2D.visible = false
+"""

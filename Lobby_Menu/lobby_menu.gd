@@ -1,6 +1,6 @@
 extends Node2D
 
-var main_world = preload("res://Main_folder/main.tscn")
+@onready var main_world = preload("res://Main_folder/main.tscn")
 var merchant_screen = preload("res://Merchant/Merchant_screen.tscn")
 var Option_screen = preload("res://Option_menu/Option_Menu.tscn")
 
