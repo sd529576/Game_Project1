@@ -72,22 +72,22 @@ func player_ground_detection():
 		$Player_sound_container/hitting_ground.play()
 		velocity_dif = 0
 func moving(x_value):
-	if x_value == 1  and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump":
+	if x_value == 1  and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump" and $AnimationPlayer.current_animation != "Attack_enhanced_Down":
 		velocity.x = move_speed
 		$Player_body.scale.x = 1.75
 		$AnimationPlayer.play("Walk_new")
 		state_x = 1
-	if x_value == -1 and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump":
+	if x_value == -1 and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump" and $AnimationPlayer.current_animation != "Attack_enhanced_Down":
 		state_x = -1
 		velocity.x = -move_speed
 		$Player_body.scale.x = -1.75
 		$AnimationPlayer.play("Walk_new")
 	if x_value == 0:
 		velocity.x = 0
-		if state_x == -1 and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump":
+		if state_x == -1 and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump" and $AnimationPlayer.current_animation != "Attack_enhanced_Down":
 			$Player_body.scale.x = -1.75
 			$AnimationPlayer.play("Idle_new")
-		if state_x == 1  and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump":
+		if state_x == 1  and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump" and $AnimationPlayer.current_animation != "Attack_enhanced_Down":
 			$Player_body.scale.x = 1.75
 			$AnimationPlayer.play("Idle_new")
 func going_down():
@@ -123,14 +123,21 @@ func jump(x_value):
 			jump_count += 1
 func attack_animation():
 	if input_handler == false:
-		if Input.is_action_just_pressed("Attack") and state_x == -1:
+		#Enhanced Up
+		if Input.is_action_just_pressed("Attack") and state_x == -1 and upgrade_enhanced_numbers == 3:
 			$Player_body.scale.x = -1.75
 			$AnimationPlayer.play("Attack")
-			#$Player_sound_container/attack_sound.play()
-		if Input.is_action_just_pressed("Attack") and state_x == 1:
+		if Input.is_action_just_pressed("Attack") and state_x == 1 and upgrade_enhanced_numbers == 3:
 			$Player_body.scale.x = 1.75
 			$AnimationPlayer.play("Attack")
-			#$Player_sound_container/attack_sound.play()
+		#Enhanced down
+		if Input.is_action_just_pressed("Attack") and state_x == -1 and upgrade_enhanced_numbers == 2:
+			$Player_body.scale.x = -1.75
+			$AnimationPlayer.play("Attack_enhanced_Down")
+		if Input.is_action_just_pressed("Attack") and state_x == 1 and upgrade_enhanced_numbers == 2:
+			$Player_body.scale.x = 1.75
+			$AnimationPlayer.play("Attack_enhanced_Down")
+			
 		if Input.is_action_just_pressed("Charged_attack") and state_x == -1:
 			$Player_body.scale.x = -1.75
 			$AnimationPlayer.play("charge_attack")
@@ -166,16 +173,18 @@ func shoot():
 		get_parent().get_node("bulletContainer").add_child(b)
 		#bullet_list.append(b)
 		b.position = $Muzzle.global_position
-		#patch needed for spreading attacks.
-		
 		"""
-		var rock1 = rock.instantiate()
-		get_parent().get_node("bulletContainer").add_child(rock1)
-		rock1.position = $Muzzle.global_position
+		var c = bulletpath2.instantiate()
+		get_parent().get_node("bulletContainer").add_child(c)
+		c.position = $Muzzle.global_position
 		"""
 		if state_x == -1:
 			b.facing_direction = -1
 			b.scale.x = -1
+			"""
+			c.facing_direction = -1
+			c.scale.x = -1
+			"""
 			#b.facing_direction = -1
 			#rock1.facing_direction = -1
 			$Muzzle.position.x = 3
@@ -183,65 +192,53 @@ func shoot():
 		elif state_x == 1:
 			b.facing_direction = 1
 			b.scale.x = 1
+			"""
+			c.facing_direction = 1
+			c.scale.x = 1
+			"""
 			#b.facing_direction = 1
 			#rock1.facing_direction =1
 			$Muzzle.position.x = 50
 			$Muzzle.position.y = 0
+		
 	elif third_attack == false:
 		attack_count -=1
 		if attack_count <2:
 			third_attack = true
 func shoot_enhanced_bottom():
-	var b = bulletpath.instantiate()
-	get_parent().get_node("bulletContainer").add_child(b)
-	var c = bulletpath2.instantiate()
-	get_parent().get_node("bulletContainer").add_child(c)
-	
-	#bullet_list.append(b)
-	b.position = $Muzzle.global_position
-	c.position = $Muzzle.global_position
-	#patch needed for spreading attacks.
-	
-	if state_x == -1:
-		b.facing_direction = -1
-		c.facing_direction = -1
-		$Muzzle.position.x = 3
-		$Muzzle.position.y = 0
-	elif state_x == 1:
-		b.facing_direction = 1
-		c.facing_direction = 1
-		$Muzzle.position.x = 50
-		$Muzzle.position.y = 0
-	# the code below will be used for lowering the attack speed by upgrading stuff from the merchant
-	# Merchant system will first be developed and then change the wait time so it shoots faster
-	# $Timer.wait_time = .2
-func shoot_enhanced_top():
-	var b = bulletpath.instantiate()
-	get_parent().get_node("bulletContainer").add_child(b)
-	var c = bulletpath2.instantiate()
-	get_parent().get_node("bulletContainer").add_child(c)
-	var d = bulletpath3.instantiate()
-	get_parent().get_node("bulletContainer").add_child(d)
-	
-	#bullet_list.append(b)
-	b.position = $Muzzle.global_position
-	c.position = $Muzzle.global_position
-	d.position = $Muzzle.global_position
-	#patch needed for spreading attacks.
-	
-	if state_x == -1:
-		b.facing_direction = -1
-		c.facing_direction = -1
-		d.facing_direction = -1
-		$Muzzle.position.x = 3
-		$Muzzle.position.y = 0
-	elif state_x == 1:
-		b.facing_direction = 1
-		c.facing_direction = 1
-		d.facing_direction = 1
-		$Muzzle.position.x = 50
-		$Muzzle.position.y = 0
-	
+	if third_attack == true:
+		attack_count = 3
+		third_attack = false
+		var b = bulletpath.instantiate()
+		get_parent().get_node("bulletContainer").add_child(b)
+		#bullet_list.append(b)
+		b.position = $Muzzle.global_position
+		var c = bulletpath2.instantiate()
+		get_parent().get_node("bulletContainer").add_child(c)
+		c.position = $Muzzle.global_position
+		if state_x == -1:
+			b.facing_direction = -1
+			b.scale.x = -1
+			c.facing_direction = -1
+			c.scale.x = -1
+			#b.facing_direction = -1
+			#rock1.facing_direction = -1
+			$Muzzle.position.x = 3
+			$Muzzle.position.y = 0
+		elif state_x == 1:
+			b.facing_direction = 1
+			b.scale.x = 1
+			c.facing_direction = 1
+			c.scale.x = 1
+			#b.facing_direction = 1
+			#rock1.facing_direction =1
+			$Muzzle.position.x = 50
+			$Muzzle.position.y = 0
+		
+	elif third_attack == false:
+		attack_count -=1
+		if attack_count <2:
+			third_attack = true
 func shoot_time_out():
 	pass
 	"""

@@ -24,11 +24,13 @@ var boss1 = boss_slime.instantiate()
 var available_blocks = 0
 var timer_pressed = false
 var modulation_value = 1
+var death_sentence_timer_occurance = false
 signal spear_firing
 func _ready():
 	$Main_sound_container/In_game_music.play()
 	boss1.boss_function_called.connect(Level1_baby_spawn)
 	$"Level Indicator".text = ("Slimy Forest")
+	$Event_indicator.modulate.a = 0
 	$Main_Timer_container/Level_Indicator_timer.start()
 	$Main_Timer_container/Round_timer.start()
 func game_over():
@@ -63,10 +65,14 @@ func Level_changes():
 		"""
 func _physics_process(_delta):
 	game_over()
+	"""
+	useful when you are trying to find which sound is playing.
 	for i in $Player/Player_sound_container.get_children():
 		if i.playing == true:
 			print(i.name)
+			"""
 func _process(_delta):
+	print($Darkness.color)
 	if $Reaper/Reaper_knife/Knife.frame == 20:
 		$Reaper/Reaper_knife.hide()
 		#$Reaper_knife/AnimatedSprite2D.play("default")
@@ -256,6 +262,8 @@ func Instantiate(target,x_position:int,y_position:int,x_velocity:int,y_velocity:
 func _on_level_indicator_timer_timeout():
 	if $"Level Indicator".modulate.a > 0:
 		$"Level Indicator".modulate.a = $"Level Indicator".modulate.a - 0.1
+	elif $"Event_indicator".modulate.a >0:
+		$"Event_indicator".modulate.a = $"Event_indicator".modulate.a -0.02
 	"""
 	if $Candidate1.modulate.a >0:
 		$"Candidate1".modulate.a = $Candidate1.modulate.a - 0.1
@@ -276,31 +284,42 @@ func _on_blue_flame_duration_timeout():
 
 func _on_death_sentence_timeout():
 	if Level_dict["Level1"] == true:
+		death_sentence_timer_occurance = true
+		$Event_indicator.modulate.a = 1
+		$Event_indicator.text = ("Darkness is approaching...")
+		await get_tree().create_timer(5).timeout
 		$Candidate1.show()
+		$Candidate1.modulate.a = 1
 		$Reaper/Reaper_knife.show()
 		$Main_sound_container/shadow.play()
 		$Main_sound_container/Knife_slice_ready.play()
 		$Reaper/Reaper_knife/Knife.play("default")
 		$Reaper/Reaper_knife/Inverted_knife.play("default")
-		$Reaper/death.start()
 		$Reaper/Slicing_timer.start()
+		$Reaper/death.start()
+		
 func _on_death_timeout():
-	print($Darkness.color)
 	if $Candidate1.modulate.a >0:
 		$Candidate1.modulate.a = $Candidate1.modulate.a - 0.05
 	elif $Candidate1.modulate.a < 0:
 		$Candidate1.hide()
-		$Candidate1.modulate.a = 1
 	
-	$Darkness.color.r -= .05
-	$Darkness.color.g -= .05
-	$Darkness.color.b -= .05
+	if $Darkness.color.r > 0 and death_sentence_timer_occurance == true:
+		$Darkness.color.r -= .05
+		$Darkness.color.g -= .05
+		$Darkness.color.b -= .05
 	
 	if $Darkness.color.r <= 0:
 		$Player/PointLight2D.show()
 		$Darkness.color.r = 0
 		$Darkness.color.g = 0
 		$Darkness.color.b = 0
+		await get_tree().create_timer(10).timeout
+		$Player/PointLight2D.hide()
+		$Darkness.color.r = 1
+		$Darkness.color.g = 1
+		$Darkness.color.b = 1
+		death_sentence_timer_occurance = false
 	#$Darkness.set_color()
 	"""
 	$Darkness.modulate.r -= .05
