@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://jiombl3a02ia"]
+
+[ext_resource type="Texture2D" uid="uid://cvim2vokd3h2" path="res://png/winter_conifer_tree_1.png" id="2_st8lw"]
+[ext_resource type="Texture2D" uid="uid://bnpvqpueun01x" path="res://png/winter_conifer_tree_2.png" id="3_s6rbe"]
+[ext_resource type="Texture2D" uid="uid://bn5yrv4gvgj3y" path="res://png/winter_conifer_tree_3.png" id="4_o4h8p"]
+[ext_resource type="Texture2D" uid="uid://d137gnc2srei2" path="res://png/winter_conifer_tree_10.png" id="5_oua3n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txfsj"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4pld"]
+size = Vector2(51, 80)
+
+[sub_resource type="Animation" id="Animation_s74w6"]
+resource_name = "shakes"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinterConiferTree1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_5jswr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinterConiferTree1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_apn1r"]
+_data = {
+"RESET": SubResource("Animation_5jswr"),
+"shakes": SubResource("Animation_s74w6")
+}
+
+[node name="Tree_obstacle" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 5.79212)
+scale = Vector2(0.165563, 0.499419)
+sprite_frames = SubResource("SpriteFrames_txfsj")
+frame_progress = 0.953558
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_h4pld")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_apn1r")
+}
+
+[node name="WinterConiferTree1" type="Sprite2D" parent="."]
+position = Vector2(181, 14)
+texture = ExtResource("2_st8lw")
+
+[node name="WinterConiferTree2" type="Sprite2D" parent="."]
+position = Vector2(346, 15)
+scale = Vector2(0.839286, 0.9)
+texture = ExtResource("3_s6rbe")
+
+[node name="WinterConiferTree3" type="Sprite2D" parent="."]
+position = Vector2(575, 10)
+texture = ExtResource("4_o4h8p")
+
+[node name="WinterConiferTree10" type="Sprite2D" parent="."]
+position = Vector2(881, 12)
+texture = ExtResource("5_oua3n")

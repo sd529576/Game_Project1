@@ -30,7 +30,7 @@ func _on_enhanced_attack_btn_mouse_exited():
 
 func _on_attack_speed_btn_mouse_entered():
 	$Skill_name.text = ("Cry")
-	$Description.text = ("Attack delay gets reduced")
+	$Description.text = ("Second attack has a chance to fire the attack.")
 
 
 func _on_attack_speed_btn_mouse_exited():
@@ -85,10 +85,12 @@ func _on_attack_speed_btn_pressed():
 		player.coins -= 10
 		player.get_node("Attack_Timer").wait_time = player.get_node("Attack_Timer").wait_time-0.02
 		player.upgrade_numbers -= 1
+		print("Upgrade Complete")
 	elif player.coins - 30 >= 0 and player.upgrade_numbers == 2:
 		player.coins -= 30
 		player.get_node("Attack_Timer").wait_time = player.get_node("Attack_Timer").wait_time-0.03
 		player.upgrade_numbers -= 1
+		print("uuuuuu pressed it, once again.")
 	elif player.coins -50 >= 0 and player.upgrade_numbers == 1:
 		player.coins -= 50
 		player.get_node("Attack_Timer").wait_time = player.get_node("Attack_Timer").wait_time-0.04

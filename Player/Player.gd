@@ -46,7 +46,7 @@ func _physics_process(delta):
 		
 	elif on_ladder == false:
 		grav_only_stairs = false
-	Ladder_climb()
+	#Ladder_climb()
 	player_ground_detection()
 	# this condition was applied to stop the player movement when you either click esc btn or resume btn(singal was connected to the main node, which had to use music content that was separated.)
 	if get_parent().paused == false or get_parent().get_node("Main_sound_container/In_game_music").stream_paused == false:
@@ -145,10 +145,6 @@ func attack_animation():
 			$Player_body.scale.x = 1.75
 			$AnimationPlayer.play("charge_attack")
 			
-		if $AnimatedSprite2D.frame == 4:
-			$AnimatedSprite2D.stop()
-			$SpritesheetFinal.visible = true
-			$AnimatedSprite2D.visible = false
 	# limiting the attack animation to occur when the shield is activated.
 	elif input_handler == true:# and Input.is_action_just_pressed("damage_check"):
 		pass
@@ -203,7 +199,12 @@ func shoot():
 		
 	elif third_attack == false:
 		attack_count -=1
+		var rng = RandomNumberGenerator.new()
+		var random_num = rng.randi_range(0,10)
 		if attack_count <2:
+			third_attack = true
+		#this must be 50percent chance of getting the second attack to occur
+		elif attack_count == 2 and random_num % 2 == 0 and upgrade_numbers == 2:
 			third_attack = true
 func shoot_enhanced_bottom():
 	if third_attack == true:
@@ -255,13 +256,9 @@ func shoot_time_out():
 	elif input_handler == true:# and Input.is_action_just_pressed("damage_check"):
 		pass
 		"""
-
+"""
 func Ladder_climb():
 	if Input.is_action_just_pressed("Up") and on_ladder == true:
-		"""
-		if position.x != get_parent().get_node("Ladder").position.x:
-			position.x = get_parent().get_node("Ladder").position.x
-		"""
 		for i in get_parent().get_node("Ladder_container").get_children():
 			if (abs(i.position.x - position.x)) < 10:
 				position.x = i.position.x
@@ -272,7 +269,7 @@ func Ladder_climb():
 		$SpritesheetFinal.visible = false
 		$AnimatedSprite2D.visible = true
 		$AnimatedSprite2D.play("Climb_up")
-
+"""
 func shield_activation():
 	if get_parent().get_node("Merchant_screen").shield_activation == true:
 		if Input.is_action_just_pressed("damage_check"):
