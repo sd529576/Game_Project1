@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2giepkmvsk0r"]
+[gd_scene load_steps=19 format=3 uid="uid://2giepkmvsk0r"]
 
 [ext_resource type="Script" path="res://Attack_image/attack_bullet_2.gd" id="1_b8jxb"]
 [ext_resource type="Texture2D" uid="uid://b8v07ocivlsxg" path="res://output-onlinepngtools (1).png" id="2_hxx7b"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c5rxqg6ewyxwe" path="res://image (1).png" id="7_55jfg"]
 [ext_resource type="Texture2D" uid="uid://b8l46xd50n7xn" path="res://image (2).png" id="8_r6y3y"]
 [ext_resource type="Texture2D" uid="uid://dr6ffoa7t2ld4" path="res://image (3).png" id="9_v7nuj"]
+[ext_resource type="Texture2D" uid="uid://dcusnkhaloou3" path="res://png/Bullet_Knight.png" id="10_wuhdk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng8tv"]
 atlas = ExtResource("2_hxx7b")
@@ -25,6 +26,10 @@ region = Rect2(0, 0, 232, 280)
 [sub_resource type="AtlasTexture" id="AtlasTexture_66vvj"]
 atlas = ExtResource("5_naq2s")
 region = Rect2(0, 0, 232, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxrq3"]
+atlas = ExtResource("10_wuhdk")
+region = Rect2(75, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7x7pk"]
 animations = [{
@@ -61,10 +66,24 @@ animations = [{
 "loop": true,
 "name": &"right_side_attack",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxrq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxrq3")
+}],
+"loop": true,
+"name": &"take",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvube"]
 size = Vector2(21, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unl8v"]
+size = Vector2(69, 67)
 
 [node name="attack_bullet2" type="Area2D"]
 texture_filter = 1
@@ -72,13 +91,17 @@ script = ExtResource("1_b8jxb")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.00001, -0.999996)
-scale = Vector2(0.116379, 0.119643)
 sprite_frames = SubResource("SpriteFrames_7x7pk")
-animation = &"right_side_attack"
+animation = &"take"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gvube")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_unl8v")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited" flags=18]

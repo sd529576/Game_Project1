@@ -19,7 +19,7 @@ func _on_button_pressed():
 
 func _on_enhanced_attack_btn_mouse_entered():
 	$Skill_name.text = ("Friends")
-	$Description.text = ("Attacks fire on one additional direction")
+	$Description.text = ("3rd Attack fires on one additional direction")
 
 
 func _on_enhanced_attack_btn_mouse_exited():
