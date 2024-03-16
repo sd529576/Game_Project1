@@ -72,7 +72,7 @@ func _physics_process(_delta):
 			print(i.name)
 			"""
 func _process(_delta):
-	print($Darkness.color)
+	#print($Reaper/Death_sentence.time_left)
 	if $Reaper/Reaper_knife/Knife.frame == 20:
 		$Reaper/Reaper_knife.hide()
 		#$Reaper_knife/AnimatedSprite2D.play("default")
@@ -87,8 +87,10 @@ func _process(_delta):
 	Level1_Boss_spawn()
 	Level_changes()
 	monster_death()
-	if Input.is_action_just_pressed("Paused"):
+	if Input.is_action_just_pressed("Paused") and $Event_indicator.modulate.a <= 0:
 		pause_screen()
+	elif Input.is_action_just_pressed("Paused") and $Event_indicator.modulate.a > 0:
+		print("you can't pause when darkness is issued!!")
 	$Player_stat.text = ("Player Health:" + str($Player.health) +"\nCoins:" + str($Player.coins))
 	#$Round_time_left.text = (str(snappedf($Round_timer.time_left,0.01)))
 	if door_entered == true and Input.is_action_just_pressed("Up"):
@@ -206,7 +208,7 @@ func _on_resume_btn_pressed():
 	$Merchant_screen.hide()
 func _on_merchant_btn_pressed():
 	#Engine.time_scale = 0
-	
+	paused = paused
 	#$Monster_container.pause()
 	$Monster_container.hide()
 	$Main_Menu.hide()
@@ -215,6 +217,7 @@ func _on_merchant_btn_pressed():
 	$Main_sound_container/In_game_music.stream_paused = true
 	$Merchant_screen.show()
 	$Merchant_Setting_screen.make_current()
+	#$Reaper/Death_sentence.autostart = false
 	#$Main_sound_container/Merchant_rain_music.play()
 	# the reason that we need these nodes to be individual hidden is because merchant screen is part of the player node
 	
