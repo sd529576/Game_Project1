@@ -1,3 +1,8 @@
+res://Level2_Skeleton/Level2_Skeleton.tscn
+res://Level2_Skeleton/Level2_Skeleton.gd
 res://Main_folder/main.tscn
-res://Main_folder/main.gd
-res://Lobby_Menu/lobby_menu.tscn
+res://Player/Player.tscn
+res://tree_obstacle/tree_obstacle.tscn
+res://tree_obstacle/tree_obstacle.gd
+res://monster2/monster2.tscn
+res://tree_obstacle/Area2D.gd

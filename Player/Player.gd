@@ -31,6 +31,8 @@ var sound_path = AudioStreamPlayer2D
 signal Projectile_direction
 
 func _process(_delta):
+	if Input.is_action_just_pressed("Coin_copy"):
+		coins += 100
 	var input_direction = Vector2(
 		Input.get_action_strength("Right") - Input.get_action_strength("Left"),
 		Input.get_action_strength("Down") - Input.get_action_strength("Up")
@@ -146,7 +148,7 @@ func attack_animation():
 			$AnimationPlayer.play("charge_attack")
 			
 	# limiting the attack animation to occur when the shield is activated.
-	elif input_handler == true:# and Input.is_action_just_pressed("damage_check"):
+	elif input_handler == true:# and Input.is_action_just_pressed("Shield_on_off"):
 		pass
 func player_attacked():
 	if get_node("Attacked_collision").hurt == true and health > 0:
@@ -253,7 +255,7 @@ func shoot_time_out():
 		$Attack_Timer.stop()
 		#$Player_sound_container/attack_sound.play()
 	# limiting the attack animation to occur when the shield is activated.
-	elif input_handler == true:# and Input.is_action_just_pressed("damage_check"):
+	elif input_handler == true:# and Input.is_action_just_pressed("Shield_on_off"):
 		pass
 		"""
 """
@@ -272,11 +274,11 @@ func Ladder_climb():
 """
 func shield_activation():
 	if get_parent().get_node("Merchant_screen").shield_activation == true:
-		if Input.is_action_just_pressed("damage_check"):
+		if Input.is_action_just_pressed("Shield_on_off"):
 			input_handler = true
 			var shield = preload("res://Sphere_shield/Shield.tscn").instantiate()
 			add_child(shield)
-		if Input.is_action_just_released("damage_check"):
+		if Input.is_action_just_released("Shield_on_off"):
 			input_handler = false
 			if $Shield:
 				$Shield.queue_free()
