@@ -32,6 +32,7 @@ func _ready():
 	$"Level Indicator".text = ("Slimy Forest")
 	$Event_indicator.modulate.a = 0
 	$Main_Timer_container/Level_Indicator_timer.start()
+	$"Level Indicator".show()
 	$Main_Timer_container/Round_timer.start()
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
@@ -306,7 +307,7 @@ func _on_death_timeout():
 		$Candidate1.modulate.a = $Candidate1.modulate.a - 0.05
 	elif $Candidate1.modulate.a < 0:
 		$Candidate1.hide()
-	
+		
 	if $Darkness.color.r > 0 and death_sentence_timer_occurance == true:
 		$Darkness.color.r -= .05
 		$Darkness.color.g -= .05

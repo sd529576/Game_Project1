@@ -1,4 +1,4 @@
 CollisionShape2D
 Area2D
-WorldEnvironment
 AnimatedSprite2D
+CharacterBody2D

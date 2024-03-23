@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://bibqnoj4donat"]
+
+[ext_resource type="Script" path="res://Pumpkin_obstacle/Pumpkin_obstacle.gd" id="1_rerk5"]
+[ext_resource type="Texture2D" uid="uid://ddswxmjq8tyx1" path="res://png/PC Computer - MapleStory - Big Pumpkin.png" id="1_wokil"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ylna"]
+atlas = ExtResource("1_wokil")
+region = Rect2(0, 118, 125, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ctt8"]
+atlas = ExtResource("1_wokil")
+region = Rect2(125, 118, 125, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5l0p"]
+atlas = ExtResource("1_wokil")
+region = Rect2(250, 118, 125, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5q6a"]
+atlas = ExtResource("1_wokil")
+region = Rect2(375, 118, 125, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpwec"]
+atlas = ExtResource("1_wokil")
+region = Rect2(500, 118, 125, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilix6"]
+atlas = ExtResource("1_wokil")
+region = Rect2(625, 118, 125, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1rw80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ylna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ctt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5l0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5q6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpwec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilix6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gewhs"]
+radius = 44.0114
+
+[node name="Pumpkin_Obstacle" type="CharacterBody2D"]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_rerk5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1rw80")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -3)
+shape = SubResource("CircleShape2D_gewhs")

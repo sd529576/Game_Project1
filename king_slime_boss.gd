@@ -19,10 +19,6 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	move_and_slide()
-
-func _process(_delta):
-	pass
-	#print(health)
 	
 
 func _on_jump_timer_timeout():
