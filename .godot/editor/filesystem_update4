@@ -1,6 +1,9 @@
-res://Pumpkin_obstacle/Pumpkin_obstacle.tscn
-res://Pumpkin_obstacle/Pumpkin_obstacle.gd
 res://Main_folder/main.tscn
+res://Main_folder/RigidBody2D.gd
 res://Lobby_Menu/lobby_menu.tscn
-res://tree_obstacle/tree_obstacle.tscn
-res://monster2/monster2.tscn
+res://test1/test_physics.tscn
+res://Player/Player.gd
+res://Level2_boss/Level2_boss.tscn
+res://Main_folder/main.gd
+res://Player/Player.tscn
+res://Spear_obstacle/Spear.tscn

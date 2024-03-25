@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var starting_direction : Vector2 = Vector2(0,1)
 var input_handler = false
 var jump_velocity = -600.0
+var push_force = 80.0
 var gravity = 3000
 var health = 50
 var state_x = 0
@@ -67,6 +68,10 @@ func _physics_process(delta):
 		b.position.y = position.y + 20
 	move_and_slide()
 	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal()*push_force)
 func player_ground_detection():
 	if velocity.y < 0:
 		velocity_dif += velocity.y

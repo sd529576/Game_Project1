@@ -34,6 +34,7 @@ func _ready():
 	$Main_Timer_container/Level_Indicator_timer.start()
 	$"Level Indicator".show()
 	$Main_Timer_container/Round_timer.start()
+	#Level_dict["Level2"] = true
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
 		$Player.death_once = true
@@ -51,6 +52,7 @@ func Level_changes():
 		$Player.set_collision_mask_value(4,false)
 		$Player.set_collision_layer_value(3,true)
 		$Player.set_collision_mask_value(3,true)
+		$Player.set_collision_mask_value(5,true)
 		$Player/RemoteTransform2D.set_remote_node("Level2_Screen")
 	"""
 	if monster_num <= 40:
@@ -73,6 +75,11 @@ func _physics_process(_delta):
 			print(i.name)
 			"""
 func _process(_delta):
+	"""
+	if Input.is_action_just_pressed("run it"):
+		$"Main_Timer_container/Spear Rain".start()
+		print("well?")
+		"""
 	#print($Reaper/Death_sentence.time_left)
 	if $Reaper/Reaper_knife/Knife.frame == 20:
 		$Reaper/Reaper_knife.hide()
