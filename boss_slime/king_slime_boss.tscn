@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8kicvleep8vc"]
+[gd_scene load_steps=23 format=3 uid="uid://c8kicvleep8vc"]
 
 [ext_resource type="Script" path="res://king_slime_boss.gd" id="1_e3oss"]
 [ext_resource type="Texture2D" uid="uid://ctjj28f5g6aou" path="res://png/Blue_Flame/ezgif-frame-006-removebg-preview.png" id="2_81jig"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c6pfdsofvycud" path="res://KingSlime-CamacebraGames/Idle/KingSlime_Idle1.png" id="8_flily"]
 [ext_resource type="Script" path="res://boss_slime/Marker2D.gd" id="9_udwcc"]
 [ext_resource type="PackedScene" uid="uid://dpwbdn4gntgaa" path="res://Damage_notif/damage_notf.tscn" id="10_0annx"]
+[ext_resource type="PackedScene" uid="uid://bfcd6ch4m5toq" path="res://Health_bar/progress_bar.tscn" id="18_pnpye"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7qx7q"]
 animations = [{
@@ -142,6 +143,13 @@ damage_node = ExtResource("10_0annx")
 
 [node name="Tick_Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="ProgressBar" parent="." instance=ExtResource("18_pnpye")]
+offset_left = -121.0
+offset_top = -117.0
+offset_right = 119.0
+offset_bottom = -105.0
+max_value = 500.0
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="timeout" from="Jump_Timer" to="." method="_on_jump_timer_timeout"]

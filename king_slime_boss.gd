@@ -6,8 +6,12 @@ var rng = RandomNumberGenerator.new()
 var direction = 1
 var time_out = false
 @onready var player = get_parent().get_parent().get_node("Player")
+@onready var healthbar = $ProgressBar
 signal boss_function_called 
 var explosion = preload("res://explosion/explosion.tscn").instantiate()
+
+func _ready():
+	healthbar.init_health(health)
 
 func _physics_process(delta):
 	if health <=0:
@@ -19,8 +23,8 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	move_and_slide()
-	
-
+	#healthbar.health = health
+	healthbar._set_health(health)
 func _on_jump_timer_timeout():
 	var left_to_right_num = rng.randf_range(700,300)
 	var right_to_left_num = rng.randf_range(-300,-700)
@@ -45,3 +49,6 @@ func _on_jump_timer_timeout():
 func spread():
 	if health < 100 and get_parent().get_parent().paused == false:
 		boss_function_called.emit()
+
+	
+	

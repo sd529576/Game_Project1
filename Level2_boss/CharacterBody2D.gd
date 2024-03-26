@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-var move_speed = 50
+var move_speed = 4
 
 func _physics_process(_delta):
-	velocity.x = move_speed
+	position.x += move_speed
 	
 	move_and_slide()
-
