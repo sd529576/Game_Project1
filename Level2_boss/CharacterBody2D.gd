@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var move_speed = 0
+var move_speed = 50
 
 func _physics_process(_delta):
 	velocity.x = move_speed

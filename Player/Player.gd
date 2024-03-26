@@ -160,6 +160,7 @@ func player_attacked():
 		$Player_sound_container/Hurt_sound.play()
 		health = health - 5
 		get_node("Attacked_collision").hurt = false
+		#velocity.y = $Attacked_collision.attack_bounce_direction * 3000
 		velocity.x = $Attacked_collision.attack_bounce_direction * 3000
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://Game_over/game_over.tscn")
@@ -174,36 +175,17 @@ func shoot():
 		third_attack = false
 		var b = bulletpath.instantiate()
 		get_parent().get_node("bulletContainer").add_child(b)
-		#bullet_list.append(b)
 		b.position = $Muzzle.global_position
-		"""
-		var c = bulletpath2.instantiate()
-		get_parent().get_node("bulletContainer").add_child(c)
-		c.position = $Muzzle.global_position
-		"""
 		if state_x == -1:
 			b.facing_direction = -1
 			b.scale.x = -1
-			"""
-			c.facing_direction = -1
-			c.scale.x = -1
-			"""
-			#b.facing_direction = -1
-			#rock1.facing_direction = -1
 			$Muzzle.position.x = 3
 			$Muzzle.position.y = 0
 		elif state_x == 1:
 			b.facing_direction = 1
 			b.scale.x = 1
-			"""
-			c.facing_direction = 1
-			c.scale.x = 1
-			"""
-			#b.facing_direction = 1
-			#rock1.facing_direction =1
 			$Muzzle.position.x = 50
 			$Muzzle.position.y = 0
-		
 	elif third_attack == false:
 		attack_count -=1
 		var rng = RandomNumberGenerator.new()
@@ -229,8 +211,6 @@ func shoot_enhanced_bottom():
 			b.scale.x = -1
 			c.facing_direction = -1
 			c.scale.x = -1
-			#b.facing_direction = -1
-			#rock1.facing_direction = -1
 			$Muzzle.position.x = 3
 			$Muzzle.position.y = 0
 		elif state_x == 1:
@@ -238,8 +218,6 @@ func shoot_enhanced_bottom():
 			b.scale.x = 1
 			c.facing_direction = 1
 			c.scale.x = 1
-			#b.facing_direction = 1
-			#rock1.facing_direction =1
 			$Muzzle.position.x = 50
 			$Muzzle.position.y = 0
 		
@@ -249,6 +227,7 @@ func shoot_enhanced_bottom():
 			third_attack = true
 func shoot_time_out():
 	pass
+	
 	"""
 	if input_handler == false:
 		if upgrade_enhanced_numbers == 3:
@@ -292,3 +271,7 @@ func shield_activation():
 
 func player_sound_play(sound):
 	sound.play()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	health = 0

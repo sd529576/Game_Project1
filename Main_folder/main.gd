@@ -34,7 +34,7 @@ func _ready():
 	$Main_Timer_container/Level_Indicator_timer.start()
 	$"Level Indicator".show()
 	$Main_Timer_container/Round_timer.start()
-	#Level_dict["Level2"] = true
+	Level_dict["Level2"] = true
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
 		$Player.death_once = true
