@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://beulre0xnx8a5"]
+[gd_scene load_steps=52 format=3 uid="uid://beulre0xnx8a5"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_cmi00"]
 [ext_resource type="Texture2D" uid="uid://b4guavx54g7ei" path="res://spritesheet_final.png" id="2_ls07s"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Player/Weapon_area2d.gd" id="8_1bseo"]
 [ext_resource type="AudioStream" uid="uid://rl7o7oba4f3w" path="res://Sound Effects/normal_attack.mp3" id="9_jtggc"]
 [ext_resource type="AudioStream" uid="uid://cex5xcw12jbgl" path="res://Sound Effects/charged_attack.mp3" id="10_0ouov"]
+[ext_resource type="Script" path="res://Player/Area2D.gd" id="11_7ndcb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ttcff"]
 size = Vector2(25, 20.5)
@@ -649,11 +650,17 @@ animations = [{
 radius = 16.6658
 height = 33.3316
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2c3ul"]
+radius = 56.1427
+
 [node name="Player" type="CharacterBody2D" groups=["Climber"]]
 texture_filter = 1
-collision_layer = 9
-collision_mask = 9
+collision_layer = 13
+collision_mask = 13
 script = ExtResource("1_cmi00")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 11.25)
@@ -706,5 +713,15 @@ stream = ExtResource("9_jtggc")
 [node name="Charged_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_0ouov")
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("11_7ndcb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_2c3ul")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="Player_body/Weapon_area2d" to="Player_body/Weapon_area2d" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -25,6 +25,7 @@ var available_blocks = 0
 var timer_pressed = false
 var modulation_value = 1
 var death_sentence_timer_occurance = false
+var level_change_occ = false
 signal spear_firing
 func _ready():
 	$Main_sound_container/In_game_music.play()
@@ -34,16 +35,15 @@ func _ready():
 	$Main_Timer_container/Level_Indicator_timer.start()
 	$"Level Indicator".show()
 	$Main_Timer_container/Round_timer.start()
-	#Level_dict["Level2"] = true
+	Level_dict["Level2"] = true
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
 		$Player.death_once = true
 		get_node("Player").get_node("AnimatedSprite2D").play("Death")
 		get_node("Main_Timer_container/second_delay_after_death_timer").start()
 func Level_changes():
-	if Level_dict["Level2"] == true and len($Monster_container.get_children()) == 0:
-		get_node("Level2_Screen/Timer").set_autostart(true)
-		get_node("Level2_Screen/Timer").start()
+	if Level_dict["Level2"] == true and len($Monster_container.get_children()) == 0 and level_change_occ == false:
+		level_change_occ = true
 		Level_dict["Level1"] = false
 		$Level2_Screen.make_current()
 		$Player.set_collision_layer_value(1,false)
@@ -54,6 +54,11 @@ func Level_changes():
 		$Player.set_collision_mask_value(3,true)
 		$Player.set_collision_mask_value(5,true)
 		$Player/RemoteTransform2D.set_remote_node("Level2_Screen")
+		$Player.position.x = -497
+		$Player.position.y = 1548
+		await get_tree().create_timer(3.0).timeout
+		get_node("Level2_Screen/Timer").set_autostart(true)
+		get_node("Level2_Screen/Timer").start()
 	"""
 	if monster_num <= 40:
 		for i in $Monster_container.get_children():
@@ -299,8 +304,8 @@ func _on_death_sentence_timeout():
 		$Event_indicator.modulate.a = 1
 		$Event_indicator.text = ("Darkness is approaching...")
 		await get_tree().create_timer(5).timeout
-		$Candidate1.show()
-		$Candidate1.modulate.a = 1
+		$CanvasLayer/Candidate1.show()
+		$CanvasLayer/Candidate1.modulate.a = 1
 		$Reaper/Reaper_knife.show()
 		$Main_sound_container/shadow.play()
 		$Main_sound_container/Knife_slice_ready.play()
@@ -310,10 +315,10 @@ func _on_death_sentence_timeout():
 		$Reaper/death.start()
 		
 func _on_death_timeout():
-	if $Candidate1.modulate.a >0:
-		$Candidate1.modulate.a = $Candidate1.modulate.a - 0.05
-	elif $Candidate1.modulate.a < 0:
-		$Candidate1.hide()
+	if $CanvasLayer/Candidate1.modulate.a >0:
+		$CanvasLayer/Candidate1.modulate.a = $CanvasLayer/Candidate1.modulate.a - 0.05
+	elif $CanvasLayer/Candidate1.modulate.a < 0:
+		$CanvasLayer/Candidate1.hide()
 		
 	if $Darkness.color.r > 0 and death_sentence_timer_occurance == true:
 		$Darkness.color.r -= .05

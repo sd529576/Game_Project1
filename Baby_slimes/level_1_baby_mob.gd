@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health = 100
+var health = 60
 var speed = 100
 var jump_velocity = 5000
 var player1_position

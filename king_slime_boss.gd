@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 500
+var health = 1000
 var gravity = 3000
 var rng = RandomNumberGenerator.new()
 var direction = 1
@@ -47,7 +47,7 @@ func _on_jump_timer_timeout():
 	spread()
 	
 func spread():
-	if health < 100 and get_parent().get_parent().paused == false:
+	if health < 200 and get_parent().get_parent().paused == false:
 		boss_function_called.emit()
 
 	

@@ -9,12 +9,12 @@ func _on_body_entered(body):
 		if body.is_in_group(i):
 			if get_parent().get_parent().get_node("AnimationPlayer").current_animation == "Attack":
 				attack_value = 20
-				body.get_node("Area2D").damage_dealt = 20
+				body.get_node("Area2D").damage_dealt = attack_value
 				body.get_node("Area2D").knock_back.emit()
 				body.health -= attack_value
 			elif get_parent().get_parent().get_node("AnimationPlayer").current_animation == "charge_attack":
 				attack_value = 30
-				body.get_node("Area2D").damage_dealt = 30
+				body.get_node("Area2D").damage_dealt = attack_value
 				body.get_node("Area2D").knock_back.emit()
 				body.health -= attack_value
 			attacked.emit()

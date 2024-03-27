@@ -145,11 +145,18 @@ damage_node = ExtResource("10_0annx")
 autostart = true
 
 [node name="ProgressBar" parent="." instance=ExtResource("18_pnpye")]
-offset_left = -121.0
-offset_top = -117.0
-offset_right = 119.0
-offset_bottom = -105.0
-max_value = 500.0
+offset_left = -119.0
+offset_top = -91.0
+offset_right = 121.0
+offset_bottom = -79.0
+max_value = 1000.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -120.0
+offset_top = -114.0
+offset_right = -39.0
+offset_bottom = -88.0
+text = "King Slime"
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="timeout" from="Jump_Timer" to="." method="_on_jump_timer_timeout"]
