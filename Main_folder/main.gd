@@ -35,7 +35,7 @@ func _ready():
 	$Main_Timer_container/Level_Indicator_timer.start()
 	$"Level Indicator".show()
 	$Main_Timer_container/Round_timer.start()
-	Level_dict["Level2"] = true
+	#Level_dict["Level2"] = true
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
 		$Player.death_once = true
@@ -59,6 +59,8 @@ func Level_changes():
 		await get_tree().create_timer(3.0).timeout
 		get_node("Level2_Screen/Timer").set_autostart(true)
 		get_node("Level2_Screen/Timer").start()
+		get_node("Coin_ball_container/Timer").set_autostart(true)
+		get_node("Coin_ball_container/Timer").start()
 	"""
 	if monster_num <= 40:
 		for i in $Monster_container.get_children():
@@ -123,10 +125,11 @@ func _process(_delta):
 func Level1_monster_spawn():
 	random = -(randi() % 1100)
 	Instantiate(monster,random,300,0,0,"Monster_container")
+"""
 func Level2_monster_spawn():
 	random = -(randi() % 1100)
 	Instantiate(monster3,random,1200,0,0,"Monster_container")
-
+"""
 func Spear_rain():
 	random = -(randi() % 1100)
 	Instantiate(spear,random,95,0,0,"Spear_container")
@@ -167,8 +170,10 @@ func monster_death():
 func _on_monster_spawn_timer_timeout():
 	if paused == false and Level_dict["Level1"] == true:
 		Level1_monster_spawn()
+	"""
 	elif paused == false and Level_dict["Level2"] == true:
 		Level2_monster_spawn()
+		"""
 
 func pause_screen():
 	if !paused:

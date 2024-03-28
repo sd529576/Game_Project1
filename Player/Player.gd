@@ -274,4 +274,5 @@ func player_sound_play(sound):
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	health = 0
+	if get_parent().Level_dict["Level2"] == true:
+		health = 0

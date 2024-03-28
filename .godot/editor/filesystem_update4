@@ -1,10 +1,5 @@
-res://Lobby_Menu/lobby_menu.tscn
-res://Coin_ball_obs/Coin_ball.tscn
-res://Player/Player.tscn
 res://Main_folder/main.tscn
-res://Player/Area2D.gd
-res://Coin_ball_obs/Coin_ball.gd
-res://Main_folder/coin_ball_spawn_point.gd
-res://Main_folder/Coin_ball_container.gd
-res://Main_folder/Level2_Screen.gd
+res://Main_folder/main.gd
+res://Lobby_Menu/lobby_menu.tscn
 res://Player/Player.gd
+res://Player/Player.tscn
