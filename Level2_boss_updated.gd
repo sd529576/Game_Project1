@@ -7,6 +7,8 @@ func _process(_delta):
 var move_speed = 3.5
 
 func _physics_process(_delta):
-	position.x += move_speed
+	#await get_tree().create_timer(5).timeout
+	if get_parent().Level_dict["Level2"] == true:
+		position.x += move_speed
 	
 	move_and_slide()

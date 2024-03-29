@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://djp621ubk1wdp"]
+[gd_scene load_steps=5 format=3 uid="uid://djp621ubk1wdp"]
 
 [ext_resource type="Script" path="res://Coin_ball_obs/Coin_ball.gd" id="1_1004s"]
 [ext_resource type="Texture2D" uid="uid://becjvac1m30h8" path="res://png/coins (1).png" id="1_sv2ns"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tj85a"]
+bounce = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xq5c"]
 radius = 38.1182
@@ -10,6 +13,7 @@ radius = 38.1182
 position = Vector2(0, 2)
 collision_layer = 4
 collision_mask = 29
+physics_material_override = SubResource("PhysicsMaterial_tj85a")
 script = ExtResource("1_1004s")
 
 [node name="Coins(1)" type="Sprite2D" parent="."]

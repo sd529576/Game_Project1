@@ -35,7 +35,7 @@ func _ready():
 	$Main_Timer_container/Level_Indicator_timer.start()
 	$"Level Indicator".show()
 	$Main_Timer_container/Round_timer.start()
-	#Level_dict["Level2"] = true
+	Level_dict["Level2"] = true
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
 		$Player.death_once = true
@@ -106,7 +106,7 @@ func _process(_delta):
 		pause_screen()
 	elif Input.is_action_just_pressed("Paused") and $Event_indicator.modulate.a > 0:
 		print("you can't pause when darkness is issued!!")
-	$Player_stat.text = ("Player Health:" + str($Player.health) +"\nCoins:" + str($Player.coins))
+	$CanvasLayer/Player_stat.text = ("Player Health:" + str($Player.health) +"\nCoins:" + str($Player.coins))
 	#$Round_time_left.text = (str(snappedf($Round_timer.time_left,0.01)))
 	if door_entered == true and Input.is_action_just_pressed("Up"):
 		$Main_Timer_container/Teleport_timer.start()
@@ -187,7 +187,7 @@ func pause_screen():
 				for i in $Baby_slime_container.get_children():
 					i.set_physics_process(false)
 			$Main_Menu.show()
-			$Player_stat.hide()
+			$CanvasLayer/Player_stat.hide()
 			$Player.hide()
 			$Option_Menu_Main.hide()
 			$Main_sound_container/In_game_music.stream_paused = true
@@ -210,7 +210,7 @@ func pause_screen():
 			$Main_Menu.hide()
 			$Option_Menu_Main.show()
 			$Merchant_screen.hide()
-			$Player_stat.show()
+			$CanvasLayer/Player_stat.show()
 			$Player.show()
 			$Level1_Screen.make_current()
 			$Reaper/Death_sentence.paused = false
@@ -230,7 +230,7 @@ func _on_merchant_btn_pressed():
 	#$Monster_container.pause()
 	$Monster_container.hide()
 	$Main_Menu.hide()
-	$Player_stat.hide()
+	$CanvasLayer/Player_stat.hide()
 	$Player.hide()
 	$Main_sound_container/In_game_music.stream_paused = true
 	$Merchant_screen.show()
