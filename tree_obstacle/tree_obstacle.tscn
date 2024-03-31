@@ -7,10 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://clmnlhonqwu11" path="res://tree_obstacle/tree_sound_3.mp3" id="5_bwi35"]
 [ext_resource type="AudioStream" uid="uid://denv3ydtanhg5" path="res://tree_obstacle/tree_sound_2.mp3" id="5_cqiuc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p7da"]
-radius = 4.5
-height = 51.1575
-
 [sub_resource type="Animation" id="Animation_5jswr"]
 length = 0.001
 
@@ -283,19 +279,18 @@ animations = [{
 "speed": 17.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p7da"]
+radius = 13.0
+height = 177.158
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3d3ov"]
-radius = 25.0
-height = 91.4375
+radius = 18.5
+height = 84.5
 
 [node name="Tree_obstacle" type="CharacterBody2D" groups=["tree_obstacle"]]
 collision_layer = 10
 collision_mask = 10
 script = ExtResource("1_ndjv2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.86265e-06, 0.842499)
-scale = Vector2(2, 2)
-shape = SubResource("CapsuleShape2D_4p7da")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -303,10 +298,12 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, 2.98023e-08)
-scale = Vector2(0.3, 0.422)
+scale = Vector2(1, 1.406)
 sprite_frames = SubResource("SpriteFrames_oosfm")
-frame_progress = 0.671028
+frame = 35
+frame_progress = 1.0
 
 [node name="tree_shake_sound1" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-0.600006, -0.315002)
@@ -320,10 +317,18 @@ stream = ExtResource("5_bwi35")
 position = Vector2(-0.600006, -0.315002)
 stream = ExtResource("5_cqiuc")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 7)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_4p7da")
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0.399994, -0.315002)
+collision_layer = 11
+collision_mask = 11
 script = ExtResource("3_gxy60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1.39999, 7.315)
+position = Vector2(-3.39999, 15.315)
+scale = Vector2(4, 4)
 shape = SubResource("CapsuleShape2D_3d3ov")

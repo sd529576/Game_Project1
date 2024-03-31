@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b25mb0h4edc1q"]
+
+[ext_resource type="Script" path="res://Throw_progress_testing/Throw_progress.gd" id="1_0txrk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0xl2"]
+bg_color = Color(0.882353, 0.482353, 0.0470588, 1)
+
+[node name="ProgressBar" type="ProgressBar"]
+offset_right = 264.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_q0xl2")
+script = ExtResource("1_0txrk")

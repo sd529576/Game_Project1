@@ -38,8 +38,8 @@ func _ready():
 	Level_dict["Level2"] = true
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
+		$Player/Attacked_collision.set_collision_mask_value(2,false)
 		$Player.death_once = true
-		get_node("Player").get_node("AnimatedSprite2D").play("Death")
 		get_node("Main_Timer_container/second_delay_after_death_timer").start()
 func Level_changes():
 	if Level_dict["Level2"] == true and len($Monster_container.get_children()) == 0 and level_change_occ == false:

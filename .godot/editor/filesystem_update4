@@ -1,9 +1,1 @@
-res://Lobby_Menu/lobby_menu.tscn
 res://Main_folder/main.tscn
-res://Main_folder/main.gd
-res://Level2_boss_updated.gd
-res://Level2_boss/level_2_boss_updated.tscn
-res://Coin_ball_obs/Coin_ball.tscn
-res://monster2/monster2.tscn
-res://Pumpkin_obstacle/Pumpkin_obstacle.tscn
-res://Player/Player.tscn

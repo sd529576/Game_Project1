@@ -38,8 +38,12 @@ func _process(_delta):
 		Input.get_action_strength("Right") - Input.get_action_strength("Left"),
 		Input.get_action_strength("Down") - Input.get_action_strength("Up")
 	)
-	moving(input_direction.x)
-	jump(input_direction.x)
+	if health >0:
+		moving(input_direction.x)
+		jump(input_direction.x)
+	else:
+		if death_once == false:
+			$AnimationPlayer.play("death")
 func _physics_process(delta):
 	if is_on_floor():
 		jump_count = 0
@@ -91,12 +95,13 @@ func moving(x_value):
 		$AnimationPlayer.play("Walk_new")
 	if x_value == 0:
 		velocity.x = 0
-		if state_x == -1 and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump" and $AnimationPlayer.current_animation != "Attack_enhanced_Down":
+		if state_x == -1 and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump" and $AnimationPlayer.current_animation != "Attack_enhanced_Down" and $AnimationPlayer.current_animation != "death":
 			$Player_body.scale.x = -1.75
 			$AnimationPlayer.play("Idle_new")
-		if state_x == 1  and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump" and $AnimationPlayer.current_animation != "Attack_enhanced_Down":
+		if state_x == 1  and $AnimationPlayer.current_animation != "Attack" and $AnimationPlayer.current_animation != "charge_attack" and $AnimationPlayer.current_animation != "attacked" and $AnimationPlayer.current_animation != "Jump" and $AnimationPlayer.current_animation != "Attack_enhanced_Down" and $AnimationPlayer.current_animation != "death":
 			$Player_body.scale.x = 1.75
 			$AnimationPlayer.play("Idle_new")
+	
 func going_down():
 	if Input.is_action_just_pressed("Down"):
 		hold_input = true
