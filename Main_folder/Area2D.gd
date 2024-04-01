@@ -22,14 +22,12 @@ func _on_body_entered(body):
 		if body.position.x < get_parent().position.x:
 			attack_bounce_direction = 1
 			get_parent().get_node("AnimationPlayer").play("attacked")
-			print("hello? plz?")
 			#get_parent().velocity.x = -5000
 			get_parent().velocity.y = get_parent().jump_velocity
 		# if the position of x to the mob is right side of the player, play attacked from the right
 		elif body.position.x > get_parent().position.x:
 			attack_bounce_direction = -1
 			get_parent().get_node("AnimationPlayer").play("attacked")
-			print("hello? plz?")
 			#get_parent().velocity.x = 5000
 			get_parent().velocity.y = get_parent().jump_velocity
 			

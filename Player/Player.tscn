@@ -173,6 +173,22 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_cwwkt"]
+resource_name = "Dash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [72, 73, 74, 75]
+}
+
 [sub_resource type="Animation" id="Animation_w045e"]
 resource_name = "Idle_new"
 length = 0.9
@@ -410,22 +426,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(16.7758, 2.36754)]
-}
-
-[sub_resource type="Animation" id="Animation_cwwkt"]
-resource_name = "Dash"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player_body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [72, 73, 74, 75]
 }
 
 [sub_resource type="Animation" id="Animation_5wccw"]
@@ -716,7 +716,7 @@ radius = 56.1427
 [node name="Player" type="CharacterBody2D" groups=["Climber"]]
 texture_filter = 1
 collision_layer = 13
-collision_mask = 13
+collision_mask = 45
 script = ExtResource("1_cmi00")
 
 [node name="Marker2D" type="Marker2D" parent="."]

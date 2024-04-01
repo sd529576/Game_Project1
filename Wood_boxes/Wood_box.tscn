@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjelhxgcrsfhx"]
+
+[ext_resource type="Script" path="res://Wood_boxes/Wood_box.gd" id="1_gjgcw"]
+[ext_resource type="Texture2D" uid="uid://c2o2uni3bbuu0" path="res://png/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_xqqrv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bywkb"]
+size = Vector2(146.667, 143.333)
+
+[node name="Wood_box" type="RigidBody2D"]
+collision_layer = 20
+collision_mask = 4
+script = ExtResource("1_gjgcw")
+
+[node name="TxVillageProps" type="Sprite2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+texture = ExtResource("1_xqqrv")
+region_enabled = true
+region_rect = Rect2(41.7691, 18.579, 45.0492, 44.8316)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.499999)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_bywkb")

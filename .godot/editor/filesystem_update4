@@ -1,1 +1,16 @@
 res://Main_folder/main.tscn
+res://Lobby_Menu/lobby_menu.tscn
+res://Player/Player.tscn
+res://Throw_progress_testing/Throw_progress.gd
+res://Coin_ball_obs/Coin_ball.tscn
+res://Coin_ball_obs/Coin_ball.gd
+res://Throw_progress_testing/Throw_progress.tscn
+res://Player/Area2D.gd
+res://Main_folder/Area2D.gd
+res://Main_folder/Coin_ball_container.gd
+res://Level2_boss/level_2_boss_updated.tscn
+res://Wood_boxes/Wood_box.tscn
+res://Particle_Effects/rain.tscn
+res://Level2_boss_updated.gd
+res://Player/Player.gd
+res://Wood_boxes/Wood_box.gd
