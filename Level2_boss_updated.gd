@@ -1,12 +1,10 @@
 extends CharacterBody2D
 
 var push_force = 80.0
+var move_speed = 3.5
 
 func _process(_delta):
 	$AnimationPlayer.play("default")
-	
-	
-var move_speed = 3.5
 
 func _physics_process(_delta):
 	#await get_tree().create_timer(5).timeout

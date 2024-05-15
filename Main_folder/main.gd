@@ -35,7 +35,7 @@ func _ready():
 	$Main_Timer_container/Level_Indicator_timer.start()
 	$"Level Indicator".show()
 	$Main_Timer_container/Round_timer.start()
-	Level_dict["Level2"] = true
+	Level_dict["Level2"] = false
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
 		$Player/Attacked_collision.set_collision_mask_value(2,false)
