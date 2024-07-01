@@ -786,6 +786,7 @@ shape = SubResource("CircleShape2D_2c3ul")
 stream = ExtResource("12_5mx8g")
 
 [node name="ProgressBar" parent="." instance=ExtResource("13_dgpft")]
+visible = false
 offset_left = -130.0
 offset_top = -80.0
 offset_right = 134.0

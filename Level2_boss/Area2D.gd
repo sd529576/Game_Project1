@@ -12,3 +12,7 @@ func _on_body_entered(body):
 	if body.is_in_group("Coin_ball"):
 		body.queue_free()
 		get_parent().position.x -= 300
+	if body.is_in_group("Wood_box"):
+		body.queue_free()
+		get_parent().num_box += 1
+		

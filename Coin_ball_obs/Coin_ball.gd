@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var picked = false
+var holding = false
 func _physics_process(delta):
 	print(get_parent().get_parent().get_node("Player/ProgressBar").value)
 	if picked == true:
@@ -10,3 +11,4 @@ func _physics_process(delta):
 		picked = false
 		apply_central_impulse(Vector2(-300,-800))
 		get_parent().get_parent().get_node("Player/ProgressBar").max = 0
+	print(global_position)

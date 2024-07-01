@@ -56,6 +56,7 @@ func Level_changes():
 		$Player/RemoteTransform2D.set_remote_node("Level2_Screen")
 		$Player.position.x = -497
 		$Player.position.y = 1548
+		$Player/ProgressBar.show()
 		await get_tree().create_timer(3.0).timeout
 		get_node("Level2_Screen/Timer").set_autostart(true)
 		get_node("Level2_Screen/Timer").start()
