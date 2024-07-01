@@ -1,25 +1,14 @@
-<<<<<<< Updated upstream
-res://Main_folder/main.tscn
-res://Main_folder/main.gd
-res://Lobby_Menu/lobby_menu.tscn
-=======
-<<<<<<< HEAD
 res://Lobby_Menu/lobby_menu.tscn
 res://Main_folder/main.tscn
-res://Wood_boxes/Wood_box.tscn
 res://Player/Player.tscn
-res://Coins/coins.tscn
-res://Coin_ball_obs/Coin_ball.tscn
-res://boss_slime/king_slime_boss.tscn
-res://Damage_notif/damage_notf.tscn
-res://Baby_slimes/level_1_baby_mob.tscn
+res://Player/Player.gd
+res://Player/Weapon_area2d.gd
 res://Main_folder/main.gd
-res://Coin_ball_obs/Coin_ball.gd
-res://Wood_boxes/Wood_box.gd
 res://Level2_boss/level_2_boss_updated.tscn
-=======
-res://Main_folder/main.tscn
-res://Main_folder/main.gd
-res://Lobby_Menu/lobby_menu.tscn
->>>>>>> 557eca829d67f0d668b0e13b52d5d89e740f24d8
->>>>>>> Stashed changes
+res://king_slime_boss.gd
+res://king_slime_boss.tscn
+res://boss_slime/king_slime_boss.tscn
+res://Level2_boss_updated.gd
+res://Damage_notif/damage_notf.tscn
+res://monster2/monster2.tscn
+res://Damage_notif/damage_notf.gd

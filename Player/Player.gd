@@ -27,10 +27,10 @@ var max_jump = 2
 var third_attack = false
 var attack_count = 3
 var sound_path = AudioStreamPlayer2D
+var fever = false
 @onready var Monster2 = preload("res://monster2/monster2.tscn").instantiate()
 @export var on_ladder = false
 signal Projectile_direction
-
 func _process(_delta):
 	if Input.is_action_just_pressed("Coin_copy"):
 		coins += 100
@@ -44,6 +44,10 @@ func _process(_delta):
 	else:
 		if death_once == false:
 			$AnimationPlayer.play("death")
+	if fever == true:
+		$Buffed.show()
+		$Buffed.play("default")
+		fever = false
 func _physics_process(delta):
 	if is_on_floor():
 		jump_count = 0

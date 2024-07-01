@@ -18,12 +18,14 @@ func _physics_process(delta):
 		explosion.position = position
 		get_parent().get_parent().add_child(explosion)
 		explosion.emitting = true
+		
 	velocity.y += gravity*delta
+	
 	if is_on_floor():
 		velocity.x = 0
 	
 	move_and_slide()
-	#healthbar.health = health
+	healthbar.health = health
 	healthbar._set_health(health)
 func _on_jump_timer_timeout():
 	var left_to_right_num = rng.randf_range(700,300)

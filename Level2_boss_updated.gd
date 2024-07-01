@@ -1,19 +1,11 @@
 extends CharacterBody2D
 
 var push_force = 80.0
-<<<<<<< Updated upstream
-var move_speed = 3.5
-=======
-<<<<<<< HEAD
 var wood_box = preload("res://Wood_boxes/Wood_box.tscn")
 @export var num_box = 0
 var box = preload("res://Wood_boxes/Wood_box.tscn")
 var occured = false
-var move_speed = 3.2
-=======
-var move_speed = 3.5
->>>>>>> 557eca829d67f0d668b0e13b52d5d89e740f24d8
->>>>>>> Stashed changes
+var move_speed = 2.0
 
 func _process(_delta):
 	"""
@@ -21,9 +13,6 @@ func _process(_delta):
 	print(len(get_parent().get_node("Wood_box_container").get_children()))
 	print(len(get_node("Projectile_attack_container").get_children()))
 	$AnimationPlayer.play("default")
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	"""
 	if occured == false:
 		if len(get_parent().get_node("Wood_box_container").get_children()) == 0:
@@ -34,10 +23,7 @@ func _process(_delta):
 				$Projectile_attack_container.add_child(new_box)
 			num_box = 0
 			occured = true
-=======
->>>>>>> 557eca829d67f0d668b0e13b52d5d89e740f24d8
->>>>>>> Stashed changes
-
+			
 func _physics_process(_delta):
 	#await get_tree().create_timer(5).timeout
 	if get_parent().Level_dict["Level2"] == true:

@@ -26,6 +26,7 @@ var timer_pressed = false
 var modulation_value = 1
 var death_sentence_timer_occurance = false
 var level_change_occ = false
+var monster_killed = 0
 signal spear_firing
 func _ready():
 	$Main_sound_container/In_game_music.play()
@@ -36,6 +37,7 @@ func _ready():
 	$"Level Indicator".show()
 	$Main_Timer_container/Round_timer.start()
 	Level_dict["Level2"] = false
+	$Monster_killed_label.text = "Monster_killed "+ str(monster_killed)
 func game_over():
 	if $Player.health == 0 and $Player.death_once == false:
 		$Player/Attacked_collision.set_collision_mask_value(2,false)
@@ -158,11 +160,13 @@ func monster_death():
 				i.queue_free()
 				Instantiate(coin,i.position.x,i.position.y,0,0,"Coin_bag")
 				$Monster_sound_container/Slime_death_sound.play()
-			elif i.name == "King_slime_boss" and i.health == 0:
+				monster_killed += 1
+			elif i.name == "King_slime_boss" and i.health <= 0:
 				i.queue_free()
 				$Main_Timer_container/Round_timer.paused = true
 			elif monster_num <= 40 and i.name != "King_slime_boss" and Level_dict["Level1"] == true:
 				i.queue_free()
+				monster_killed += 1
 	if len($Baby_slime_container.get_children()) > 0:
 		for i in $Baby_slime_container.get_children():
 			if i.health <= 0:
